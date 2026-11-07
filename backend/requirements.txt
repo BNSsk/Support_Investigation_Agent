@@ -1,0 +1,21 @@
+# Orchestration
+langgraph>=0.6
+langgraph-checkpoint-sqlite>=2.0
+langchain-core>=0.3
+langchain-groq>=0.3
+
+# Vector DB + local embeddings (dense bge-small + sparse BM25 for hybrid search)
+qdrant-client[fastembed]>=1.12
+
+# API / UI server
+fastapi>=0.115
+uvicorn[standard]>=0.30
+
+# Data + config
+pandas>=2.2
+huggingface_hub>=0.25
+python-dotenv>=1.0
+pydantic>=2.7
+
+# Evaluation
+langsmith>=0.2

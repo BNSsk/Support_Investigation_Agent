@@ -1,0 +1,11 @@
+# secrets
+.env
+backend/.env
+
+# local data / indexes / databases
+backend/data/
+.claude
+# python
+.venv/
+__pycache__/
+*.pyc

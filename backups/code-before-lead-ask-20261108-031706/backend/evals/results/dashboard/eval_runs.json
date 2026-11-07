@@ -1,0 +1,26 @@
+[
+ {
+  "suite": "heldout",
+  "dataset": "support-agent-heldout",
+  "dataset_url": "https://eu.smith.langchain.com/o/e5074cb3-5e9f-4ef8-b987-3e640a6b2276/datasets/4bf7c315-ac3a-45f4-8367-ac77652624e6",
+  "experiment": "support-agent-heldout-98b54f3f",
+  "experiment_url": "https://eu.smith.langchain.com/o/e5074cb3-5e9f-4ef8-b987-3e640a6b2276/datasets/4bf7c315-ac3a-45f4-8367-ac77652624e6/compare?selectedSessions=1dc807e8-3585-44cd-8737-7ce45c9282c4",
+  "finished_at": "2026-11-07 19:44",
+  "model": "openai/gpt-oss-120b",
+  "fast_model": "openai/gpt-oss-20b",
+  "judge_model": "openai/gpt-oss-20b",
+  "evaluators": "classification_accuracy, retrieval_queue_precision, retrieval_relevance, response_quality, groundedness, tool_usage, agent_behavior"
+ },
+ {
+  "suite": "scenarios",
+  "dataset": "support-agent-scenarios",
+  "dataset_url": "https://eu.smith.langchain.com/o/e5074cb3-5e9f-4ef8-b987-3e640a6b2276/datasets/486602de-b0ee-4054-8fe8-d4a75f43d3e2",
+  "experiment": "support-agent-scenarios-6d4244ab",
+  "experiment_url": "https://eu.smith.langchain.com/o/e5074cb3-5e9f-4ef8-b987-3e640a6b2276/datasets/486602de-b0ee-4054-8fe8-d4a75f43d3e2/compare?selectedSessions=4777c566-36ba-4a06-a943-eed2f0fabef4",
+  "finished_at": "2026-11-07 19:52",
+  "model": "openai/gpt-oss-120b",
+  "fast_model": "openai/gpt-oss-20b",
+  "judge_model": "openai/gpt-oss-20b",
+  "evaluators": "retrieval_relevance, response_quality, groundedness, tool_usage, agent_behavior"
+ }
+]

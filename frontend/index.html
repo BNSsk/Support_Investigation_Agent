@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Support Investigation Agent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">◆</span>
+      <div>
+        <h1>Support Investigation Agent</h1>
+        <p>LangGraph · Groq · Qdrant hybrid case-based RAG</p>
+      </div>
+    </div>
+    <div class="pills" id="healthPills"><span class="pill">connecting…</span></div>
+  </header>
+
+  <main class="layout">
+    <!-- ============ LEFT: input, memory, cases ============ -->
+    <aside class="sidebar">
+      <section class="card">
+        <div class="card-h"><h2>New ticket</h2></div>
+        <label class="lbl">Demo scenario</label>
+        <select id="scenarioSelect"><option value="">— custom ticket —</option></select>
+        <p class="hint" id="scenarioHint"></p>
+        <label class="lbl">Customer ID</label>
+        <input id="customerId" value="cust-demo" />
+        <label class="lbl">Subject</label>
+        <input id="subject" placeholder="Short summary" />
+        <label class="lbl">Description</label>
+        <textarea id="body" rows="6" placeholder="Describe the issue…"></textarea>
+        <label class="check"><input type="checkbox" id="autoAccept" /> Auto-accept final review</label>
+        <button class="btn primary" id="submitBtn">Investigate ticket</button>
+        <button class="btn ghost hidden" id="nextStepBtn">Load next scenario step →</button>
+      </section>
+
+      <section class="card">
+        <div class="card-h"><h2>Customer memory</h2><button class="btn tiny ghost" id="clearMemBtn" title="Delete long-term memory for this customer">clear</button></div>
+        <div id="memoryBox" class="muted">Enter a customer id.</div>
+      </section>
+
+      <section class="card">
+        <div class="card-h"><h2>Cases</h2><button class="btn tiny ghost" id="refreshCasesBtn">refresh</button></div>
+        <div id="casesList" class="cases"></div>
+      </section>
+    </aside>
+
+    <!-- ============ MAIN ============ -->
+    <section class="main">
+      <div class="row two">
+        <section class="card graph-card">
+          <div class="card-h">
+            <h2>Workflow</h2>
+            <div class="legend">
+              <span><i class="sw visited"></i>visited</span><span><i class="sw active"></i>last step</span><span><i class="sw waiting"></i>waiting</span>
+            </div>
+          </div>
+          <div id="graph" class="graph"></div>
+        </section>
+
+        <section class="card trace-card">
+          <div class="card-h"><h2>Live trace</h2><span class="muted small" id="threadLabel"></span></div>
+          <ol id="timeline" class="timeline"><li class="empty">Submit a ticket to watch the agent work.</li></ol>
+        </section>
+      </div>
+
+      <section class="card action hidden" id="actionCard"></section>
+
+      <section class="card hidden" id="resultCard"></section>
+
+      <section class="card hidden" id="followupCard">
+        <div class="card-h"><h2>Follow-up in this thread</h2><span class="muted small">short-term memory keeps the full context</span></div>
+        <div class="inline">
+          <input id="followupInput" placeholder="e.g. I tried that but it still fails with the same error" />
+          <button class="btn" id="followupBtn">Send</button>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <div class="modal hidden" id="modal"><div class="modal-box"><button class="btn tiny ghost close" id="modalClose">close</button><div id="modalBody"></div></div></div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

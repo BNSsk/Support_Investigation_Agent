@@ -1,0 +1,281 @@
+{
+  "_about": "Read-only export from backend/data/app.db. JSON text columns are parsed into objects.",
+  "case_resolved_lead_verified": {
+    "case_id": "CASE-261106-6C7E3C",
+    "thread_id": "thread-c0f1f5585d",
+    "customer_id": "cust-fabrikam-4i8o",
+    "subject": "Premium analytics dashboard stops refreshing every afternoon",
+    "body": "Since we moved to the Premium plan, our analytics dashboard stops refreshing QuickBooks data every afternoon between 2 and 5 pm and shows 'request failed' on most widgets. Mornings are fine. About 40 people use the dashboard. What is going on?",
+    "status": "resolved",
+    "classification": {
+      "queue": "Technical Support",
+      "type": "Incident",
+      "priority": "high",
+      "tags": [
+        "Bug",
+        "Performance",
+        "Integration",
+        "Technical"
+      ]
+    },
+    "analysis": "The support lead (LEAD-CASE-261106-6C7E3C) provides the definitive root cause and two possible solutions: upgrade to Diamond membership or keep Premium and adjust QuickBooks refresh settings (shared cache, 15‑min interval) and optionally request higher RPS quota. Two lead‑verified cases (CASE-261106-0B0F83, CASE-261105-78DB6D) confirm the shared‑cache workaround. No conflict exists; the lead’s upgrade recommendation overrides any other suggestions. Therefore the reply combines the lead’s primary fix and the alternative older approach, citing the lead case and one verified case.",
+    "resolution": "Hi, I see your Premium analytics dashboard is hitting the QuickBooks request‑per‑second limit during the 2‑5 pm peak, causing the widgets to fail.\n\nPlease choose one of the following solutions:\n\n1. **Upgrade to Diamond membership** – this raises the RPS quota and eliminates the throttling.\n2. **Keep your current plan and apply the older workaround**:\n   a. Open **Dashboard Settings → Data Sources → QuickBooks**.\n   b. Change **Refresh mode** to **Shared cache**.\n   c. Set the **Refresh interval** to **15 minutes**.\n   d. If you still need live‑data updates, have your account admin request an increased QuickBooks RPS quota from the Integrations team.\n\nAfter implementing either option, monitor the dashboard during the afternoon window. If the issue persists, let us know.\n\nThanks for your patience.",
+    "evidence": [
+      {
+        "case_id": "LEAD-CASE-261106-6C7E3C",
+        "source": "lead",
+        "similarity": null,
+        "lead_verified": true,
+        "subject": "Support-lead diagnosis for CASE-261106-6C7E3C",
+        "issue": "",
+        "resolution": "Root cause (support lead): Premium dashboards refresh every widget for every viewer once a minute. With ~40 concurrent users in the afternoon peak, the QuickBooks connector exceeds its requests-per-second (RPS) limit and the integration throttles the requests.\nVerified solution (support lead): upgrading you account type to diamond member ship will resolve this issue. i you wish not to upgrade the system then the same older approach works",
+        "summary": "Root cause (support lead): Premium dashboards refresh every widget for every viewer once a minute. With ~40 concurrent users in the afternoon peak, the QuickBooks connector exceeds its requests-per-second (RPS) limit and",
+        "queue": "Technical Support",
+        "how_used": "Provides root cause and primary solution (upgrade to Diamond) and mentions older approach as alternative."
+      },
+      {
+        "case_id": "CASE-261106-0B0F83",
+        "source": "live",
+        "similarity": 1.0,
+        "lead_verified": true,
+        "subject": "Premium analytics dashboard stops refreshing every afternoon",
+        "issue": "Since we moved to the Premium plan, our analytics dashboard stops refreshing QuickBooks data every afternoon between 2 and 5 pm and shows 'request failed' on most widgets. Mornings are fine. About 40 people use the dashboard. What is going on?",
+        "resolution": "[SUPPORT-LEAD VERIFIED]\nRoot cause (support lead): Premium dashboards refresh every widget for every viewer once a minute. With ~40 concurrent users in the afternoon peak, the QuickBooks connector exceeds its requests-per-second (RPS) limit and the integration throttles the requests.\nVerified solution (support lead): 1) In Dashboard Settings > Data Sources > QuickBooks, switch the refresh mode to 'Shared cache' and set the interval to 15 minutes. 2) If the account needs live data, the account admin requests an RPS quota increase from the integrations team.\nReply sent: Hi, I understand your Premium analytics dashboard stops refreshing QuickBooks data each afternoon due to request throttling.\n\nPlease follow these steps:\n1. Open **Dashboard Settings** → **Data Sources** → **QuickBooks**.\n2. Change **Refresh mode** to **Shared cache**.\n3. Set the **Refresh interval** to **15 minutes**.\n4. If you still require live‑data updates, have your account admin submit a request to the Integrations team for an increased QuickBooks RPS quota.\n\nAfter applying these changes, monitor the dashboard during the 2‑5 pm window. If the problem persists, let us know and we’ll investigate further.\n\nThanks for your patience.",
+        "summary": "[SUPPORT-LEAD VERIFIED]\nRoot cause (support lead): Premium dashboards refresh every widget for every viewer once a minute. With ~40 concurrent users in the afternoon peak, the QuickBooks connector exceeds its requests-pe",
+        "queue": "Technical Support",
+        "how_used": "Confirms the shared‑cache settings and RPS quota request as the older approach."
+      }
+    ],
+    "escalation": {
+      "required": false,
+      "reason": null,
+      "target_team": "",
+      "urgency": ""
+    },
+    "confidence": 0.997,
+    "evaluation": {
+      "passed": true,
+      "groundedness": 1.0,
+      "addresses_issue": 1.0,
+      "retrieval_strength": 1.0,
+      "label_agreement": 1.0,
+      "checks": {
+        "cites_existing_evidence": true,
+        "compares_multiple_cases": true,
+        "has_customer_reply": true,
+        "classification_valid": true
+      },
+      "unsupported_claims": []
+    },
+    "clarifications": [],
+    "indexed": 1,
+    "created_at": "2026-11-06T15:39:26+00:00",
+    "updated_at": "2026-11-06T15:52:13+00:00",
+    "lead_guidance": {
+      "root_cause": "Premium dashboards refresh every widget for every viewer once a minute. With ~40 concurrent users in the afternoon peak, the QuickBooks connector exceeds its requests-per-second (RPS) limit and the integration throttles the requests.",
+      "solution": "upgrading you account type to diamond member ship will resolve this issue. i you wish not to upgrade the system then the same older approach works",
+      "by": "support_lead",
+      "at": "2026-11-06T15:51:48+00:00"
+    },
+    "review": {
+      "action": "accept",
+      "by": "support_lead",
+      "note": null,
+      "at": "2026-11-06T15:52:12+00:00"
+    }
+  },
+
+
+
+
+
+
+  "case_escalated": {
+    "case_id": "CASE-261105-CB5CCD",
+    "thread_id": "thread-5450225959",
+    "customer_id": "cust-stmarys-hospital-is88",
+    "subject": "EMR integration sync delays with telemedicine platform",
+    "body": "We are a hospital on your Enterprise plan. Our EMR integration module runs on Azure-hosted servers and syncs patient appointments to the telemedicine platform. Since Monday the sync is delayed by 30-40 minutes. No error messages, the servers look healthy.",
+    "status": "escalated",
+    "classification": {
+      "queue": "Technical Support",
+      "type": "Incident",
+      "priority": "high",
+      "tags": [
+        "Integration",
+        "Performance",
+        "Disruption",
+        "Telemedicine",
+        "EMR"
+      ]
+    },
+    "analysis": "The two relevant cases (HT-00028, HT-00185) both end with requesting more details and offering a call, without providing specific troubleshooting steps. No case offers concrete steps for sync delay resolution. Therefore we cannot give unsupported steps; we must gather logs and arrange a call, which aligns with evidence. Escalation is required as per instruction.",
+    "resolution": "We understand your EMR integration is experiencing 30‑40 minute sync delays since Monday morning. To investigate further, could you please share the recent sync logs or timestamps showing when the delays began, and confirm whether any Azure or network configuration changes have occurred? Additionally, let us know a convenient time and phone number for a brief call so our specialist team can work with you directly. Thank you for your patience.",
+    "evidence": [
+      {
+        "case_id": "HT-00028",
+        "source": "historical",
+        "similarity": 0.7765,
+        "subject": "Urgent: Ongoing System Failures Disrupting EMR/PACS Telehealth Services",
+        "issue": "Dear Customer Support Team,\n\nWe are facing repeated system failures that are significantly impairing EMR/PACS integrations as well as telemedicine platforms. Despite our prompt attempts to restart the affected equipment and activate incident response procedures, the problems persist and continue to interfere with essential healthcare functions.\n\nOur preliminary investigations indicate that the underlying issues might be related to hardware malfunctions or possible security breaches. We have taken immediate measures to isolate the affected areas, but the systems are still not stable.",
+        "resolution": "Thank you for reporting these urgent outages. To assist you promptly, could you please provide specific error messages, the names of the impacted systems, and any recent modifications to your environment? For immediate phone support, kindly share a suitable contact number and preferred time for a call.",
+        "summary": "Thank you for reporting these urgent outages. To assist you promptly, could you please provide specific error messages, the names of the impacted systems, and any recent modifications to your environment? For immediate p",
+        "queue": "Technical Support",
+        "how_used": "asks for error details, system names, recent changes, and offers phone support"
+      },
+      {
+        "case_id": "HT-00185",
+        "source": "historical",
+        "similarity": 0.7637,
+        "subject": "Widespread System Failures Disrupting EMR Telehealth Services",
+        "issue": "Dear Customer Support Team,\n\nI am submitting a report concerning a serious problem impacting several desktop applications within the facility. There have been extensive system failures that have significantly interrupted Electronic Medical Records (EMR) telehealth operations. This issue has greatly hindered our capacity to deliver prompt and efficient patient care.\n\nFrom our observations, these outages started shortly after recent modifications to the network configuration. While we cannot confirm with certainty, we suspect that the recent changes may be related.",
+        "resolution": "Thank you for reporting the critical disruptions affecting EMR telehealth services. To assist you further, could you please provide details about the recent network updates, any error messages encountered, and the operating systems involved? If possible, we can arrange a call to address this matter urgently. Kindly let us know a suitable time and whether you can provide remote access for a direct investigation.",
+        "summary": "Thank you for reporting the critical disruptions affecting EMR telehealth services. To assist you further, could you please provide details about the recent network updates, any error messages encountered, and the operat",
+        "queue": "Product Support",
+        "how_used": "requests network update info, error messages, and proposes a call"
+      }
+    ],
+    "escalation": {
+      "required": true,
+      "reason": "Need detailed logs and environment info; no concrete steps in evidence; must involve specialist team.",
+      "target_team": "Technical Support",
+      "urgency": "high"
+    },
+    "confidence": 0.746,
+    "evaluation": {
+      "passed": true,
+      "groundedness": 1.0,
+      "addresses_issue": 0.4,
+      "retrieval_strength": 0.629,
+      "label_agreement": 0.5,
+      "checks": {
+        "cites_existing_evidence": true,
+        "compares_multiple_cases": true,
+        "has_customer_reply": true,
+        "classification_valid": true,
+        "has_escalation_reason": true,
+        "valid_target_team": true
+      },
+      "unsupported_claims": []
+    },
+    "clarifications": [
+      {
+        "question": "Can you provide the recent sync logs or any timestamps showing when the delays started, and confirm if any Azure configuration changes or network updates were made since Monday?",
+        "answer": "Delays started Monday ~08:00; no Azure or network changes on our side"
+      }
+    ],
+    "indexed": 0,
+    "created_at": "2026-11-05T08:50:14+00:00",
+    "updated_at": "2026-11-05T08:56:46+00:00",
+    "lead_guidance": null,
+    "review": null
+  },
+
+
+
+
+  
+  "event_record": {
+    "id": 1661,
+    "thread_id": "thread-c0f1f5585d",
+    "payload": {
+      "type": "completed",
+      "thread_id": "thread-c0f1f5585d",
+      "final": {
+        "case_id": "CASE-261106-6C7E3C",
+        "customer_id": "cust-fabrikam-4i8o",
+        "ticket": {
+          "subject": "Premium analytics dashboard stops refreshing every afternoon",
+          "body": "Since we moved to the Premium plan, our analytics dashboard stops refreshing QuickBooks data every afternoon between 2 and 5 pm and shows 'request failed' on most widgets. Mornings are fine. About 40 people use the dashboard. What is going on?"
+        },
+        "status": "resolved",
+        "classification": {
+          "queue": "Technical Support",
+          "type": "Incident",
+          "priority": "high",
+          "tags": [
+            "Bug",
+            "Performance",
+            "Integration",
+            "Technical"
+          ]
+        },
+        "evidence": [
+          {
+            "case_id": "LEAD-CASE-261106-6C7E3C",
+            "source": "lead",
+            "similarity": null,
+            "lead_verified": true,
+            "subject": "Support-lead diagnosis for CASE-261106-6C7E3C",
+            "issue": "",
+            "resolution": "Root cause (support lead): Premium dashboards refresh every widget for every viewer once a minute. With ~40 concurrent users in the afternoon peak, the QuickBooks connector exceeds its requests-per-second (RPS) limit and the integration throttles the requests.\nVerified solution (support lead): upgrading you account type to diamond member ship will resolve this issue. i you wish not to upgrade the system then the same older approach works",
+            "summary": "Root cause (support lead): Premium dashboards refresh every widget for every viewer once a minute. With ~40 concurrent users in the afternoon peak, the QuickBooks connector exceeds its requests-per-second (RPS) limit and",
+            "queue": "Technical Support",
+            "how_used": "Provides root cause and primary solution (upgrade to Diamond) and mentions older approach as alternative."
+          },
+          {
+            "case_id": "CASE-261106-0B0F83",
+            "source": "live",
+            "similarity": 1.0,
+            "lead_verified": true,
+            "subject": "Premium analytics dashboard stops refreshing every afternoon",
+            "issue": "Since we moved to the Premium plan, our analytics dashboard stops refreshing QuickBooks data every afternoon between 2 and 5 pm and shows 'request failed' on most widgets. Mornings are fine. About 40 people use the dashboard. What is going on?",
+            "resolution": "[SUPPORT-LEAD VERIFIED]\nRoot cause (support lead): Premium dashboards refresh every widget for every viewer once a minute. With ~40 concurrent users in the afternoon peak, the QuickBooks connector exceeds its requests-per-second (RPS) limit and the integration throttles the requests.\nVerified solution (support lead): 1) In Dashboard Settings > Data Sources > QuickBooks, switch the refresh mode to 'Shared cache' and set the interval to 15 minutes. 2) If the account needs live data, the account admin requests an RPS quota increase from the integrations team.\nReply sent: Hi, I understand your Premium analytics dashboard stops refreshing QuickBooks data each afternoon due to request throttling.\n\nPlease follow these steps:\n1. Open **Dashboard Settings** → **Data Sources** → **QuickBooks**.\n2. Change **Refresh mode** to **Shared cache**.\n3. Set the **Refresh interval** to **15 minutes**.\n4. If you still require live‑data updates, have your account admin submit a request to the Integrations team for an increased QuickBooks RPS quota.\n\nAfter applying these changes, monitor the dashboard during the 2‑5 pm window. If the problem persists, let us know and we’ll investigate further.\n\nThanks for your patience.",
+            "summary": "[SUPPORT-LEAD VERIFIED]\nRoot cause (support lead): Premium dashboards refresh every widget for every viewer once a minute. With ~40 concurrent users in the afternoon peak, the QuickBooks connector exceeds its requests-pe",
+            "queue": "Technical Support",
+            "how_used": "Confirms the shared‑cache settings and RPS quota request as the older approach."
+          }
+        ],
+        "analysis": "The support lead (LEAD-CASE-261106-6C7E3C) provides the definitive root cause and two possible solutions: upgrade to Diamond membership or keep Premium and adjust QuickBooks refresh settings (shared cache, 15‑min interval) and optionally request higher RPS quota. Two lead‑verified cases (CASE-261106-0B0F83, CASE-261105-78DB6D) confirm the shared‑cache workaround. No conflict exists; the lead’s upgrade recommendation overrides any other suggestions. Therefore the reply combines the lead’s primary fix and the alternative older approach, citing the lead case and one verified case.",
+        "resolution": "Hi, I see your Premium analytics dashboard is hitting the QuickBooks request‑per‑second limit during the 2‑5 pm peak, causing the widgets to fail.\n\nPlease choose one of the following solutions:\n\n1. **Upgrade to Diamond membership** – this raises the RPS quota and eliminates the throttling.\n2. **Keep your current plan and apply the older workaround**:\n   a. Open **Dashboard Settings → Data Sources → QuickBooks**.\n   b. Change **Refresh mode** to **Shared cache**.\n   c. Set the **Refresh interval** to **15 minutes**.\n   d. If you still need live‑data updates, have your account admin request an increased QuickBooks RPS quota from the Integrations team.\n\nAfter implementing either option, monitor the dashboard during the afternoon window. If the issue persists, let us know.\n\nThanks for your patience.",
+        "internal_actions": [],
+        "escalation": {
+          "required": false,
+          "reason": null,
+          "target_team": "",
+          "urgency": ""
+        },
+        "confidence": 0.997,
+        "evaluation": {
+          "passed": true,
+          "groundedness": 1.0,
+          "addresses_issue": 1.0,
+          "retrieval_strength": 1.0,
+          "label_agreement": 1.0,
+          "checks": {
+            "cites_existing_evidence": true,
+            "compares_multiple_cases": true,
+            "has_customer_reply": true,
+            "classification_valid": true
+          },
+          "unsupported_claims": []
+        },
+        "clarifications": [],
+        "skills_used": [
+          "incident_investigation",
+          "escalation"
+        ],
+        "reviewed_by": "support_lead",
+        "review": {
+          "action": "accept",
+          "by": "support_lead",
+          "note": null,
+          "at": "2026-11-06T15:52:12+00:00"
+        },
+        "lead_guidance": {
+          "root_cause": "Premium dashboards refresh every widget for every viewer once a minute. With ~40 concurrent users in the afternoon peak, the QuickBooks connector exceeds its requests-per-second (RPS) limit and the integration throttles the requests.",
+          "solution": "upgrading you account type to diamond member ship will resolve this issue. i you wish not to upgrade the system then the same older approach works",
+          "by": "support_lead",
+          "at": "2026-11-06T15:51:48+00:00"
+        },
+        "index": {
+          "indexed": true,
+          "collection": "support_tickets",
+          "case_id": "CASE-261106-6C7E3C",
+          "lead_verified": true
+        }
+      }
+    },
+    "ts": null
+  }
+}
